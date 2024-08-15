@@ -17,7 +17,8 @@ class CustomUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ['id', 'username', 'name', 'lastname', 'DNI', 'telephone', 'email', 'address', 'gender', 'birth_date', 'health_insurance', 'health_insurance_number', 'licence_number', 'speciality', 'notes', 'roles']
+        fields = ['id', 'username', 'name', 'lastname', 'DNI', 'telephone', 'email', 'address', 'gender', 'birth_date', 'health_insurance', 'health_insurance_number', 'licence_number', 'speciality', 'notes', 'roles', 'color']
+
 
 class MedicalReportSerializer(serializers.ModelSerializer):
     professional = serializers.PrimaryKeyRelatedField(queryset=CustomUser.objects.filter(roles__name='professional'))
@@ -43,7 +44,7 @@ class CustomUserCreateUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ['id', 'username', 'password', 'name', 'lastname', 'DNI', 'telephone', 'email', 'address', 'gender', 'birth_date', 'health_insurance', 'health_insurance_number', 'licence_number', 'speciality', 'notes', 'roles']
+        fields = ['id', 'username', 'password', 'name', 'lastname', 'DNI', 'telephone', 'email', 'address', 'gender', 'birth_date', 'health_insurance', 'health_insurance_number', 'licence_number', 'speciality', 'notes', 'roles','color']
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):

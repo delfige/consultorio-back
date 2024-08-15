@@ -42,6 +42,8 @@ class CustomUser(AbstractUser):
     licence_number = models.CharField(max_length=20, blank=True, null=True)
     speciality = models.ForeignKey('Speciality', on_delete=models.SET_NULL, null=True, blank=True)
     notes = models.TextField(blank=True, null=True)
+    color = models.CharField(max_length=7, blank=True, null=True)
+
     
 
     def __str__(self):

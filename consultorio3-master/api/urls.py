@@ -14,6 +14,7 @@ router.register(r'users', CustomUserViewSet)
 router.register(r'medical_reports', MedicalReportViewSet)
 router.register(r'appointments', AppointmentViewSet)
 
+
 urlpatterns = [
     path('', include(router.urls)),
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
